@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+/*A TODOS LAS ETIQUETAS*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*DECLARANDO VALORES INICIALES AL BODY*/
+
+body{
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+
+/*PONIENDO MEDIDAS AL MAIN*/
+
+main{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden
+}
+
+/*INICIANDO LA SECCION DEL BANNER*/
+
+#banner {
+    width: 100%;
+    height: calc(100vh - 56px);
+    background-image: url(./img/imagen_fondo.jpg);
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main #banner .titulo{
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    position: relative;
+    width: 250px;
+    left: calc(100% - 250px);
+    top: 200px;
+}
+
+.titulo h1,h2 {
+    color: white;
+    font-size: 30px;
+    text-shadow: 
+                -2px -2px 0 #000,  
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -2px 0 0 #000,
+                2px 0 0 #000,
+                0 -2px 0 #000,
+                0 2px 0 #000;
+}
+
+/*INICIANDO LA PRESENTACION ,LOS ESTUDIOS Y LAS ACTITUDES*/
+
+#presentacion,#estudios,#actitudes {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+    font-family: "Orbitron",sans-serif;
+    font-weight: 100;
+}
+/*COLOCANDO LA IMAGEN DE PERFIL*/
+#presentacion .contenedor-img {
+    margin-top: 30px;
+}
+
+#presentacion .contenedor-img img{
+    width: 220px;
+}
+
+/*APLICANDO ESTILOS A LA INFORMACION DE LA PRESENTACION Y LOS ESTUDIOS*/
+
+.contenedor-informacion {
+    margin-top: 30px;
+    max-width: 90%;
+}
+
+.contenedor-informacion h2{
+    display: inline-block;
+    border-bottom: 2px solid yellow;
+    color: yellow;
+}
+
+.progress {
+    height: 40px; 
+    }
+.progress-bar {
+    height: 40px; 
+    line-height: 40px; 
+    color: white;
+    text-align: center;
+    width: 0; 
+    transition: width 2s; 
+  }
+
+@media (min-width:600px){
+    #banner{
+        background-position: center;
+    }
+
+    main #banner .titulo{
+        left: calc(100% - 500px);
+        top: 150px;
+    }
+
+    .titulo h1,h2 {
+        color: white;
+        font-size: 70px;
+        width: 450px;
+    }
+    
+}
