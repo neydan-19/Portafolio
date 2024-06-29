@@ -13,6 +13,7 @@ body{
     width: 100vw;
     height: auto;
     overflow-x: hidden;
+    background-color: white;
 }
 
 /*PONIENDO MEDIDAS AL MAIN*/
@@ -20,7 +21,10 @@ body{
 main{
     width: 100%;
     height: auto;
-    overflow-x: hidden
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*INICIANDO LA SECCION DEL BANNER*/
@@ -59,37 +63,212 @@ main #banner .titulo{
 
 /*INICIANDO LA PRESENTACION ,LOS ESTUDIOS Y LAS ACTITUDES*/
 
-#presentacion,#estudios,#actitudes {
-    width: 100%;
+#presentacion,#estudios,#actitudes,#proyectos,#redes {
+    width: 90%;
     height: auto;
-    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: whitesmoke;
     font-family: "Orbitron",sans-serif;
     font-weight: 100;
+    background-color: rgb(46, 46, 46);
 }
 /*COLOCANDO LA IMAGEN DE PERFIL*/
-#presentacion .contenedor-img {
-    margin-top: 30px;
+.contenedor-img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    box-shadow: 16px 14px 20px #0000008c;
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
 }
 
-#presentacion .contenedor-img img{
+.contenedor-img::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(rgb(0, 166, 255) 20deg,transparent 120deg);
+    animation: rotar 2s linear infinite;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.contenedor-img img {
     width: 220px;
+    position: absolute;
 }
 
-/*APLICANDO ESTILOS A LA INFORMACION DE LA PRESENTACION Y LOS ESTUDIOS*/
-
-.contenedor-informacion {
-    margin-top: 30px;
-    max-width: 90%;
+.contenedor-estudios,.contenedor-trabajos,.contenedor-redes {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contenedor-informacion h2{
+.contenedor-trabajos a {
+    width: 100%;
+}
+
+.card {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    transition: .3s all ease;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.card:hover {
+    height: 300px;
+}
+
+
+.card img {
+    width: 100%;
+}
+
+.card a{
+    text-decoration: none;
+    color: white;
+    height: 100%;
+}
+
+.card a p{
+    background-color: rgba(45, 45, 45, 0.726);
+    display: none;
+    padding: 5px;
+}
+
+.card:hover p{
     display: inline-block;
-    border-bottom: 2px solid yellow;
-    color: yellow;
+}
+
+.card-trabajo {
+    border-radius: 20px;
+    margin: 5px;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    transition: .3s all ease;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.card-trabajo:hover {
+    height: 300px;
+}
+
+.card-redes {
+    border-radius: 50%;
+    width: 50%;
+    height: auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-redes a {
+    display: contents;
+}
+
+.card-redes {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.card-redes img{
+    width: 95%;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+}
+
+.card-redes .left {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.card-redes .left::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: white;
+    transform-origin: bottom right;
+    transition: transform 5s ease; 
+}
+
+.card-redes:hover .left::before {
+    animation: rotar 1s linear infinite;
+}
+
+.card-redes .rigth {
+    position: absolute;
+    inset: 100% 0 0 100%;
+    display: block;
+}
+
+.card-redes .rigth::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: white;
+    transform-origin: top left;
+    transition: transform 5s ease; 
+}
+
+.card-redes:hover .rigth::before {
+    animation: rotar 1s linear infinite;
+}
+
+.monserrat {
+    background-image: url(./img/img_colegio.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.senati {
+    background-image: url(./img/img_senati.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.platzi {
+    background-image: url(./img/img_platzi.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-informacion {
+    max-width: 85%;
+    text-align: left !important;
 }
 
 .progress {
@@ -103,8 +282,32 @@ main #banner .titulo{
     width: 0; 
     transition: width 2s; 
   }
+@media (min-width:650px){
+    .contenedor-redes {
+        flex-direction: row;
+        align-items: center ;
+        justify-content: center;
+    }
 
-@media (min-width:600px){
+    .card-redes {
+        width: 150px;
+        height: 150px;
+        margin-left: 10px;
+    }
+
+    .card-redes .left::before {
+        width: 150px;
+        height: 150px;
+        top: -75px;
+        left: -75px;
+    }
+
+    .card-redes img {
+
+    }
+}
+
+@media (min-width:900px){
     #banner{
         background-position: center;
     }
@@ -120,4 +323,51 @@ main #banner .titulo{
         width: 450px;
     }
     
+    #presentacion,#estudios,#actitudes,#proyectos,#redes {
+        width: 70%;
+    }
+
+    .contenedor-estudios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .contenedor-trabajos{
+        display: flex;
+        min-height: 500px;
+        max-height: 600px;
+        flex-wrap: wrap;
+    }
+
+    .contenedor-trabajos a{
+        margin: 5px;
+    }
+    
+    .card {
+        margin-left: 10px;
+        width: 33%;
+        flex: 1;
+    }
+    
+    .card:hover {
+        flex: 2;
+        height: 200px;
+    }
+
+    .card-trabajo {
+        width: 100%;
+    }
+    
+    .card-trabajo:hover {
+        height: 250px;
+    }
+
+    .contenedor-trabajos a {
+        width: 33%;
+    }
+
+    .card-redes {
+        margin-bottom: 30px;
+    }
 }
